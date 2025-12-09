@@ -58,7 +58,7 @@ ul, ol {
     list-style: none;
 }
 .tf-container{
-  width: 1210px ;
+  max-width: 1210px ;
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
@@ -213,14 +213,13 @@ body {
 }
 .main-header .menu-toggle {
     position: absolute;
-    right: 10px;
+    right: -5px;
     top: 50%;
     transform: translateY(-50%);
     margin: 0;
     cursor: pointer;
     width: 40px;
     height: 32px;
-    display: none;
 }
 .menu-toggle {
     display: none;
@@ -379,6 +378,9 @@ body {
     color: #fff;
     margin-top: 60px;
 }
+.site-footer .coppyright p {
+    margin-bottom: 0;
+}
 .site-footer .footer-contact,
 .site-footer .footer-address {
         padding-top: 4px;
@@ -421,15 +423,22 @@ body {
     margin-left: 0px;
         padding: 12px 30px;
 }
-.offcanvas-header {
-    padding: 33px 25px;
-}
+
 .offcanvas-header .btn-close {
     opacity: 1;
     transition: all 0.3s ease-in-out;
+    background-image: unset;
+    color: #000;
+    background: #fff;
+    border-radius: 100px;
+    font-size: 17px;
+    line-height: 18px;
+}
+.offcanvas-header {
+    padding: 25px 25px !important;
 }
 .offcanvas-header .btn-close:hover {
-    rotate: 90deg;
+    rotate: 180deg;
 }
 /* mobie menu */
 /* cursor */

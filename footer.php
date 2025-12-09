@@ -5,7 +5,7 @@
     <footer class="site-footer">
         <div class="tf-container">
             <div class="row footer-container">
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-4 col-sm-3">
                     <div class="footer-logo">
                         <?php
                 $footer_logo = get_theme_mod('footer_logo');
@@ -15,7 +15,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-lg-6 col-md-4 col-sm-5">
                     <div class="footer-contact">
                         <h3><?php echo esc_html(get_theme_mod('footer_contact_title')); ?></h3>
                         <div class="text-wraps">
@@ -31,7 +31,7 @@
 
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-4 col-sm-4">
                     <div class="footer-address">
                         <h3><?php echo esc_html(get_theme_mod('footer_address_title')); ?></h3>
                         <div class="text">

@@ -25,7 +25,8 @@ require_once( THEMESFLAT_DIR . 'elementor-options/elementor-functions.php');
 add_action('wp_enqueue_scripts', function () {
     // Styles
     wp_enqueue_style('main-style', get_stylesheet_uri());
-    wp_enqueue_style('main-css', get_template_directory_uri() . '/assets/css/main.css'); // Đã di chuyển vào đây
+    wp_enqueue_style('main-css', get_template_directory_uri() . '/assets/css/main.css');
+     wp_enqueue_style('responsive-css', get_template_directory_uri() . '/assets/css/responsive.css');
 
     // Scripts
     wp_enqueue_script('jquery-js', get_template_directory_uri() . '/assets/js/jquery.js', array('jquery'), null, true);
@@ -290,3 +291,16 @@ function mytheme_enqueue_bootstrap() {
     );
 }
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_bootstrap');
+
+add_filter( 'elementor/fonts/groups', function( $groups ) {
+    $groups['custom-fonts'] = __( 'Custom Fonts', 'tobi' );
+    return $groups;
+});
+add_filter( 'elementor/fonts/additional_fonts', function( $fonts ) {
+
+    $fonts['Gotham']      = 'custom-fonts';
+    $fonts['Myriad Pro']  = 'custom-fonts';
+
+    return $fonts;
+});
+

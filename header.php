@@ -63,7 +63,7 @@
             aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
 
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
             </div>
             <div class="offcanvas-body">
                 <div class="mobile-menu-content">
