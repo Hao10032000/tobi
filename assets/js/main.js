@@ -1,16 +1,6 @@
 (function ($) {
     "use strict";
   
-    // Handle modal menu open/close
-    function initModalMenu() {
-      $('#modal-menu').on("click", function () {
-        $('.modal-menu').toggleClass('active');
-      });
-  
-      $(".modal-menu .overlay, .modal-menu .close-menu").on("click", function () {
-        $('.modal-menu').removeClass('active');
-      });
-    }
   
     // Handle animated wave effect
     function initWaveAnimation() {
