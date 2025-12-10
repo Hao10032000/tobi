@@ -318,6 +318,28 @@ body {
 .header-right .tf-button:hover svg path {
     fill: #7FB297;
 }
+
+/* header fixed */
+
+.header-sticky {
+  position: fixed;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  z-index: 9999;
+}
+
+.header-sticky.is-fixed {
+  transform: translateY(0%);
+}
+
 /* footer */
 .site-footer {
     background: #000000;

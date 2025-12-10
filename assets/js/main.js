@@ -170,41 +170,25 @@
     });
 
     var headerSticky = function () {
-      if (window.location.href.indexOf('/wp-admin') !== -1) return;
-    
-      let lastScrollTop = 0;
-      let delta = 5;
-      let adminBarHeight = $('#wpadminbar').length ? $('#wpadminbar').outerHeight() : 0;
-      let navbarHeight = $(".tf-custom-header").outerHeight();
-      let didScroll = false;
-    
-      $(window).scroll(function () {
-        didScroll = true;
-      });
-    
-      setInterval(function () {
-        if (didScroll) {
-          let st = $(window).scrollTop();
-          navbarHeight = $(".tf-custom-header").outerHeight();
-    
-          if (st > navbarHeight) {
-            if (st > lastScrollTop + delta) {
-              $(".tf-custom-header").css("top", `-${navbarHeight}px`);
-              $(".sticky-top").css("top", `${15 + adminBarHeight}px`);
-            } else if (st < lastScrollTop - delta) {
-              $(".tf-custom-header").css("top", `${adminBarHeight}px`);
-              $(".tf-custom-header").addClass("tf-custom-header-bg");
-              $(".sticky-top").css("top", `${15 + navbarHeight + adminBarHeight}px`);
-            }
+      var nav = $(".site-header");
+
+      if (nav.length) {
+        var offsetTop = nav.offset().top,
+          headerHeight = nav.outerHeight(),
+          adminBarHeight = $("#wpadminbar").length
+            ? $("#wpadminbar").outerHeight()
+            : 0;
+
+        $(window).on("load scroll", function () {
+          if ($(window).scrollTop() > offsetTop + headerHeight + 70) {
+            $(".header-sticky")
+              .addClass("is-fixed")
+              .css("top", adminBarHeight + "px");
           } else {
-            $(".tf-custom-header").css("top", "unset");
-            $(".tf-custom-header").removeClass("tf-custom-header-bg");
-            $(".sticky-top").css("top", `${15 + adminBarHeight}px`);
+            $(".header-sticky").removeClass("is-fixed").css("top", "");
           }
-          lastScrollTop = st;
-          didScroll = false;
-        }
-      }, 250);
+        });
+      }
     };
     
 
@@ -246,7 +230,7 @@
   
     // DOM ready
     $(function () {
-      initModalMenu();
+      // initModalMenu();
       goTop();
       initWaveAnimation();
       headerSticky();
