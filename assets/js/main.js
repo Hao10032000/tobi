@@ -246,7 +246,7 @@
   
     // DOM ready
     $(function () {
-      initModalMenu();
+      // initModalMenu();
       goTop();
       initWaveAnimation();
       headerSticky();
