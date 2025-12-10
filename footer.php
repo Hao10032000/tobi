@@ -50,7 +50,9 @@
     </footer>
 
     <div class="go-top">
-        <i class="icon-clevercarsale-arrowright"></i>
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+           <path d="M0.27002 0V1.73H7.19995L0 8.92L1.23999 10.16L8.43994 2.97V9.9H10.17V0H0.27002Z" fill="#FF9366"/>
+        </svg>
     </div>
     <!-- wrapp -->
     </div>
