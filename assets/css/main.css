@@ -1030,6 +1030,9 @@ input::placeholder,textarea::placeholder {
 label {
     font-size: 18px;
 }
+.header-sticky {
+    top: 0 !important;
+}
   }
 
 
