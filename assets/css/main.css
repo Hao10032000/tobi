@@ -431,7 +431,7 @@ body {
 .mobile-menu li  {
        margin-bottom: 10px;
     padding-bottom: 10px;
-        border-bottom: 1px solid #ffffff40;
+       border-bottom: 1px solid #ffffff17;
 }
 .mobile-menu li a {
     font-family: Myriad Pro;
@@ -1019,6 +1019,10 @@ input:focus,textarea:focus {
   }
 
   @media only screen and (max-width: 767px) {
+    .icon-title-wrap .tf-imagebox-title {
+    font-size: 16px !important;
+        line-height: 24px !important;
+}
    input, textarea {
     padding: 14px 15px 11px 15px;
 }
@@ -1031,8 +1035,13 @@ label {
     font-size: 18px;
 }
   }
-
-
+.main-menu .menu  li.current-menu-item a:before {
+    width: 100%;
+    left: 0;
+}
+.mobile-menu li.current-menu-item{
+    border-bottom: 1px solid #fff;
+}
 
 
 
