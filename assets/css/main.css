@@ -315,6 +315,9 @@ body {
 .header-right .tf-button svg path {
     fill: #FFFFFF;
 }
+.header-right .button__icon-wrapper svg {
+    width: 12px;
+}
 .header-right .tf-button:hover svg path {
     fill: #7FB297;
 }
@@ -690,6 +693,7 @@ body {
 .title-list .title-wrap {
     display: inline-flex;
     align-items: center;
+    text-wrap-mode: nowrap;
     gap: 12px;
 }
 .title-wrap .title-text {
@@ -917,11 +921,122 @@ body {
 .tf-list-image .owl-nav button:hover svg path{
  fill: #fff;
 }
+
+/* contatc form */
+.contact-form-page .input-label{
+  margin-bottom: 15.5px;
+  position: relative;
+}
+.contact-form-page .input-label.contact {
+    text-align: center;
+    margin-bottom: 0;
+}
+.btn-submit-contact {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-submit-contact input[type="submit"] {
+    padding-right: 25px; /* chừa chỗ cho SVG */
+}
+
+.btn-submit-contact svg {
+    position: absolute;
+    right: 28%;
+    top: 25%;
+    pointer-events: none;
+}
+
+.contact-form-page input.wpcf7-submit {
+    width: 303px;
+    font-family: Myriad Pro;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 1px;
+    background: transparent;
+    border-radius: 100px;
+    border: 3px solid #3357FD;
+    color: #3357FD;
+    padding: 10px;
+}
+.contact-form-page input.wpcf7-submit:hover {
+    border: 3px solid #3357FD;
+    background-color: #3357FD;
+    color: #fff;
+}
+label {
+    display: block !important;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25.39px;
+    color: #424759;
+    margin-bottom: 7px;
+}
+input,textarea {
+    font-weight: 400;
+    padding: 21px 15px 18px 15px;
+    border-radius: 10px;
+    color: #9EA8D5;
+    border: 1px solid #9EA8D5;
+        outline: none;
+        width: 100%;
+}
+textarea {
+    height: 182px;
+}
+input::placeholder,textarea::placeholder {
+    font-weight: 325;
+    font-size: 25px;
+    line-height: 29.97px;
+    color: #9EA8D5;
+}
+input:focus,textarea:focus {
+     border: 1px solid #3357FD;
+}
+/* contatc form */
+
+.tf-text-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; /* vertical default */
+    gap: 10px; /* Elementor sẽ override */
+}
+
+.tf-text-list.horizontal {
+    flex-direction: row;
+}
+
+
   @media only screen and (max-width: 991px) {
 
 
   }
 
   @media only screen and (max-width: 767px) {
-   
+   input, textarea {
+    padding: 14px 15px 11px 15px;
+}
+input::placeholder,textarea::placeholder {
+
+    font-size: 20px;
+    line-height: 1.3px;
+}
+label {
+    font-size: 18px;
+}
   }
+
+
+
+
+
+
+
+
+

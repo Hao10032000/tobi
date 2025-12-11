@@ -37,13 +37,26 @@
                     </nav>
                     <?php if ( get_theme_mod('header_button_enable', true) ) : ?>
                     <div class="header-right">
-                        <a href="<?php echo esc_url(get_theme_mod('header_button_link', '#')); ?>" class="tf-button">
-                            <span><?php echo esc_html(get_theme_mod('header_button_text', 'Contact')); ?></span>
-                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.27002 0V1.73H7.19995L0 8.92L1.23999 10.16L8.43994 2.97V9.9H10.17V0H0.27002Z"
-                                    fill="white" />
-                            </svg>
+
+                        <a class="tf-button" href="<?php echo esc_url(get_theme_mod('header_button_link', '#')); ?>">
+
+                            <span class="tf-button__text">
+                               <?php echo esc_html(get_theme_mod('header_button_text', 'Contact')); ?></span>
+                            <span class="button__icon-wrapper">
+                                <span class="button__icon-svg">
+                                    <svg viewBox="0 0 14 15" fill="currentColor" width="10">
+                                        <path
+                                            d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z">
+                                        </path>
+                                    </svg>
+                                </span> <span class="button__icon-svg button__icon-svg--copy">
+                                    <svg viewBox="0 0 14 15" fill="currentColor" width="10">
+                                        <path
+                                            d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z">
+                                        </path>
+                                    </svg>
+                                </span> </span>
+
                         </a>
                     </div>
                     <?php endif; ?>
@@ -86,13 +99,25 @@
                     </nav>
                     <?php if ( get_theme_mod('header_button_enable', true) ) : ?>
                     <div class="header-right">
-                        <a href="<?php echo esc_url(get_theme_mod('header_button_link', '#')); ?>" class="tf-button">
-                            <span><?php echo esc_html(get_theme_mod('header_button_text', 'Contact')); ?></span>
-                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0.27002 0V1.73H7.19995L0 8.92L1.23999 10.16L8.43994 2.97V9.9H10.17V0H0.27002Z"
-                                    fill="white" />
-                            </svg>
+                        <a class="tf-button" href="<?php echo esc_url(get_theme_mod('header_button_link', '#')); ?>">
+
+                            <span class="tf-button__text">
+                               <?php echo esc_html(get_theme_mod('header_button_text', 'Contact')); ?></span>
+                            <span class="button__icon-wrapper">
+                                <span class="button__icon-svg">
+                                    <svg viewBox="0 0 14 15" fill="currentColor" width="10">
+                                        <path
+                                            d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z">
+                                        </path>
+                                    </svg>
+                                </span> <span class="button__icon-svg button__icon-svg--copy">
+                                    <svg viewBox="0 0 14 15" fill="currentColor" width="10">
+                                        <path
+                                            d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z">
+                                        </path>
+                                    </svg>
+                                </span> </span>
+
                         </a>
                     </div>
                     <?php endif; ?>
