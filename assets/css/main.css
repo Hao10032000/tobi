@@ -1034,6 +1034,9 @@ input::placeholder,textarea::placeholder {
 label {
     font-size: 18px;
 }
+.header-sticky {
+    top: 0 !important;
+}
   }
 .main-menu .menu  li.current-menu-item a:before {
     width: 100%;
