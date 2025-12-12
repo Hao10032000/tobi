@@ -73,53 +73,6 @@
       animate();
     }
 
-    var textShowMore = function () {
-      if ($('.tf-description.show-more').length) {
-        $(document).ready(function($) {
-          function applyTextShortener() {
-              $('.tf-description').each(function() {
-                  var $container = $(this);
-                  var $p = $container.find('p');
-                  var fullText = $p.data('original-text');
-      
-                  if (!fullText) {
-                      fullText = $p.text().trim();
-                      $p.data('original-text', fullText);
-                  }
-      
-                  if (window.innerWidth <= 767) {
-                      if (!$p.hasClass('shortened')) {
-                          var halfLength = Math.floor(fullText.length / 3);
-                          var shortText = fullText.substring(0, halfLength) + '...';
-                          $p.text(shortText).addClass('shortened');
-                          $container.find('.btn-show').show();
-                      }
-                  } else {
-                      $p.text(fullText).removeClass('shortened');
-                      $container.find('.btn-show').hide();
-                  }
-              });
-          }
-      
-          applyTextShortener();
-      
-          $(window).on('resize', function() {
-              applyTextShortener();
-          });
-      
-          $('.tf-description .btn-show').on('click', function() {
-              var $container = $(this).closest('.tf-description');
-              var $p = $container.find('p');
-              var fullText = $p.data('original-text');
-              $p.text(fullText).removeClass('shortened');
-              $(this).hide();
-          });
-      });
-
-      }
-
-    }
-
     var animationLogo = function () {
       $(document).ready(function ($) {
 
@@ -206,27 +159,8 @@
       });
   };
   
-  $(document).ready(function () {
-      if ($('.single-feature').length) {
-      function updateBackgroundPosition() {
-          let scrollTop = $(window).scrollTop();
-          $('.single-feature').css({
-              'background-position': `center ${scrollTop * 0.5}px`
-          });
-      }
-      updateBackgroundPosition();
 
-      $(window).on('scroll', updateBackgroundPosition);
-    }
-    });
 
-    var removePreloader = function () {
-      $("#preloader").fadeOut("slow", function () {
-          setTimeout(function () {
-              $("#preloader").remove();
-          }, 1000);
-      });
-  };
   
     // DOM ready
     $(function () {
@@ -234,11 +168,9 @@
       goTop();
       initWaveAnimation();
       headerSticky();
-      removePreloader();
     });
 
     $(window).on('elementor/frontend/init', function() {
-      elementorFrontend.hooks.addAction( 'frontend/element_ready/tf-description.default', textShowMore );
       elementorFrontend.hooks.addAction( 'frontend/element_ready/tf-list-career.default', animationLogo );
   });
   
