@@ -44,57 +44,6 @@ add_action('init', function () {
 });
 
 
-// 4. Hook body (Không thay đổi, code này chỉ hoạt động khi hook đã được thêm vào theme)
-add_action('wp_body_open', function () {
-    ?>
-    
-        <a class="go-top">
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" x="0" y="0" viewBox="0 0 21 21" style="enable-background:new 0 0 512 512" xml:space="preserve" fill-rule="evenodd" class=""><g><path fill="#fff" d="M10.658 2.452 4.141 8.969a1.404 1.404 0 0 0 0 1.98 1.404 1.404 0 0 0 1.98 0l3.137-3.137v9.373c0 .77.63 1.4 1.4 1.4.77 0 1.4-.63 1.4-1.4V7.812l3.137 3.137a1.404 1.404 0 0 0 1.98 0 1.404 1.404 0 0 0 0-1.98l-6.517-6.517z" opacity="1" data-original="#00ba00" class=""></path></g></svg>
-        </a>
-
-<div id="preloader">
-            <div id="loading-center">
-                <div class="loader-container">
-                    <div class="wrap-loader">
-                        <div class="loader">
-                        </div>
-                        <div class="icon">
-                            <?php
-                            // Logo cho Preloader và Modal Menu
-                            $menu_img = get_theme_mod('menu_image_setting');
-                            if ($menu_img):
-                            ?>
-                                <div class="menu-image">
-                                    <img src="<?php echo esc_url($menu_img); ?>" alt="Menu Logo">
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    <div class="modal-menu">
-        <div class="overlay"></div>
-        <div class="inner-menu">
-            <div class="close-menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="512" viewBox="0 0 24 24" width="512"><path clip-rule="evenodd" d="m5.00073 17.5864c-.3905.3906-.39044 1.0237.00012 1.4142s1.02372.3905 1.41421-.0001l5.58524-5.5862 5.5857 5.5857c.3905.3905 1.0237.3905 1.4142 0s.3905-1.0237 0-1.4142l-5.5858-5.5858 5.5854-5.58638c.3904-.39056.3904-1.02372-.0002-1.41421-.3905-.3905-1.0237-.39044-1.4142.00012l-5.5853 5.58627-5.58572-5.58579c-.39052-.39052-1.02369-.39052-1.41421 0-.39053.39053-.39053 1.02369 0 1.41422l5.58593 5.58587z" fill="rgb(0,0,0)" fill-rule="evenodd"/></svg>
-            </div>
-            <?php
-            if ($menu_img):
-            ?>
-                <div class="menu-image">
-                    <a href="<?php echo esc_url( home_url('/') ); ?>"><img src="<?php echo esc_url($menu_img); ?>" alt="Menu Logo"></a>
-                </div>
-            <?php endif; ?>
-            <nav>
-                <?php wp_nav_menu(['theme_location' => 'main-menu']); ?>
-            </nav>
-        </div>
-    </div>
-    <?php
-});
-
 
 function tobi_customize_register($wp_customize) {
 
@@ -292,6 +241,40 @@ function mytheme_enqueue_bootstrap() {
 }
 add_action('wp_enqueue_scripts', 'mytheme_enqueue_bootstrap');
 
+function custom_enqueue_nice_select() {
+    // Nice Select CSS
+    wp_enqueue_style(
+        'nice-select-css',
+        'https://cdn.jsdelivr.net/npm/nice-select2@2.0.0/dist/css/nice-select2.min.css'
+    );
+
+    // Nice Select JS
+    wp_enqueue_script(
+        'nice-select-js',
+        'https://cdn.jsdelivr.net/npm/nice-select2@2.0.0/dist/js/nice-select2.min.js',
+        array('jquery'),
+        null,
+        true
+    );
+
+    // Init script
+    wp_add_inline_script('nice-select-js', "
+        function initNiceSelect() {
+            // Contact Form 7
+            document.querySelectorAll('.filter-dropdown-wrapper select').forEach(function (select) {
+                if (!select.classList.contains('nice-initialized')) {
+                    NiceSelect.bind(select);
+                    select.classList.add('nice-initialized');
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', initNiceSelect);
+        // Contact Form 7 reload
+        document.addEventListener('wpcf7mailsent', initNiceSelect);
+    ");
+}
+add_action('wp_enqueue_scripts', 'custom_enqueue_nice_select');
+
 add_filter( 'elementor/fonts/groups', function( $groups ) {
     $groups['custom-fonts'] = __( 'Custom Fonts', 'tobi' );
     return $groups;
@@ -303,4 +286,3 @@ add_filter( 'elementor/fonts/additional_fonts', function( $fonts ) {
 
     return $fonts;
 });
-
